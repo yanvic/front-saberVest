@@ -1,0 +1,13 @@
+{
+  "universidades": {
+    "UECE": {
+      "materias": ["Matemática", "Português", "Biologia", "Física", "Química", "Filosofia", "Sociologia", "Geografia", "História", "Ed Física", "Inglês", "Francês", "Espanhol"]
+    },
+    "URCA": {
+      "materias": ["Matemática", "Português", "Biologia", "Física", "Química", "História", "Geografia", "Inglês", "Espanhol", "Literaturas Lusófonas"]
+    },
+    "ENEM": {
+      "materias": ["Matemática", "Português", "Biologia", "Física", "Química", "Geografia"]
+    }
+  }
+}
