@@ -3,6 +3,8 @@ import '../../styles/hero.css'
 // import heroDarkImg from '../../images/college-exam.svg'
 // import heroLightImg from '../../images/paper-pana.svg'
 import Slider from "../Slider/Slider";
+import {Link} from "react-router-dom";
+
 
 
 
@@ -50,7 +52,9 @@ const Hero = ({theme}) => {
                         </p>
 
                         <div className="hero__btns">
+                            <Link to="/university">
                             <button className="primary__btn">Explore</button>
+                            </Link>
                             {/*<button className="secondary__btn">Saiba mais</button>*/}
                         </div>
                     </div>

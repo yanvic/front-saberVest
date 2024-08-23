@@ -1,6 +1,8 @@
 import React from "react";
 import '../../styles/about.css';
 import aboutImg from '../../images/img_1.png'
+import LightImg from '../../images/revisionPurple.jpg'
+import DarkImg from '../../images/revisionOrange.jpg'
 
 const chooseData = [
     {
@@ -20,7 +22,7 @@ const chooseData = [
     },
 ]
 
-const About = () => {
+const About = ({theme}) => {
     return (
         <section id="about" >
             <div className="container">
@@ -32,13 +34,11 @@ const About = () => {
                             Bem-vindo ao SaberVest! Você tem um espaço para se preparar para os vestibulares do Estado
                             do Ceará.
                             Aqui você encontra uma coleção de questões de provas anteriores para aprimorar sua prática.
-                            O objetivo é reunir todas as questões de provas dos vestibulares de todo Brasil, para que
-                            você tenha acesso a um material de estudo abrangente e atualizado.
+                            O objetivo é reunir todas as questões de provas dos vestibulares de todo Brasil.
                         </p>
                         <h2 className="highlight">Sua contribuição</h2>
                         <p className="description  about__content-desc">
-                            Acreditamos que sua contribuição pode tornar nossa plataforma ainda melhor. Se você tiver
-                            ideias
+                            Se você tiver ideias
                             de melhorias ou encontrar algo que precise de correção,
                             por favor, envie sua melhoria e feedback. Sua participação é essencial para aprimorar nossa
                             oferta e apoiar sua preparação de maneira eficaz.
@@ -61,7 +61,8 @@ const About = () => {
                     </div>
 
                     <div className="about__img">
-                        <img src={aboutImg} alt="about"/>
+                        {/*<img src={aboutImg} alt="about"/>*/}
+                        <img src={theme === 'light-theme' ? LightImg : DarkImg} alt="Uno"/>
                     </div>
                 </div>
             </div>
