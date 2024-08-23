@@ -4,19 +4,19 @@ import './Footer.css';
 const footer__links =[
     {
         icon:'ri-linkedin-fill',
-        link: 'www.linkedin.com/feed',
+        link: 'https://www.linkedin.com/in/yan-silva12',
     },
     {
         icon:'ri-instagram-line',
-        link: 'Ea FC',
+        link: 'https://www.instagram.com/yan_victor12',
     },
     {
         icon:'ri-github-fill',
-        link: 'Escalaćões 03',
+        link: 'https://www.github.com/yanvic',
     },
     {
         icon:'ri-mail-line',
-        link: 'Escalaćões 04',
+        link: 'mailto:yanusersilva@gmail.com',
     },
 ]
 
@@ -31,7 +31,7 @@ const Footer = () => {
                         <p className="description">Entre em Contato</p>
 
                         <p className="small__text description">Dúvidas, elogios e melhorias podem
-                            ser enviadas atráves dos meio de contatos, caso precise de algo.
+                            ser enviadas atráves dos canais de contatos.
                         </p>
                     </div>
 
@@ -40,10 +40,11 @@ const Footer = () => {
                             {
                                 footer__links.map((item, index) => (
                                     <div className="quick__link-item" key={index}>
+                                        <a href={item.link}>
                                          <span className="footer__icon">
-                                            <i className={item.icon} ></i>
-                                             <link className={item.link}/>
-                                         </span>
+                                            <i className={item.icon}></i>
+                                        </span>
+                                        </a>
                                     </div>
                                 ))}
                         </ul>
