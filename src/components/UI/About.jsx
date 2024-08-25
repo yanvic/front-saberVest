@@ -1,6 +1,5 @@
 import React from "react";
 import '../../styles/about.css';
-import aboutImg from '../../images/img_1.png'
 import LightImg from '../../images/revisionPurple.jpg'
 import DarkImg from '../../images/revisionOrange.jpg'
 

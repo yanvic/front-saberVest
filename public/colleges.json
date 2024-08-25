@@ -9,5 +9,24 @@
     "ENEM": {
       "materias": ["Matemática", "Português", "Biologia", "Física", "Química", "Geografia"]
     }
-  }
+  },
+  "assuntos": {
+
+  "Matemática": ["Conjuntos", "Conjuntos Numéricos", "Teoria Elementar dos Números", "Probabilidade", "Relações e Funções", "Números Complexos", "Polinômios", "Exponenciais e Logaritmos", "Trigonometria", "Progressões", "Análise Combinatória", "Matrizes e Sistemas Lineares", "Geometria Plana", "Geometria no Espaço", "Geometria Analítica no plano"],
+  "Português": ["Aspectos Gramaticais", "Aspectos Textuais", "Interpretação de Texto", "Convenções da Escrita Formal", "Aspectos da Literatura Brasileira"],
+  "Biologia": ["Início da Vida", "Generalidade do Seres Vivos", "Base Molecular da Vida", "Citologia", "Histologia", "Anatomofisiologia Comparada", "Sistemas Integradores", "Reprodução dos Seres Superiores", "Genética", "Seres Vivos", "Teoria Elementar da Evolução", "Fundamentos da Ecologia", "Noções Sobre Programas de Saúde", "Vírus"],
+  "Física": ["Objetivo da Física", "Força", "Equilíbrio do Ponto Material", "Movimento Retilíneo Uniforme e Uniformemente Acelerado", "Segunda Lei de Newton e Aplicações à Dinâmica", "Movimento Circular Uniforme", "Energia Mecânica", "Gravitação Universal", "Movimento Vibratório", "Hidrostática", "Temperatura", "Gases Ideais", "Quantidade de Calor", "Mudança de Estado", "Primeira e Segunda Leis da Termodinâmica", "Óptica Geométrica", "Óptica Física", "Eletricidade", "Corrente Contínua", "Magnetismo"],
+  "Química": ["Espécies Químicas e Misturas", "Matéria", "Estudo dos Gases", "Teoria Atômica", "Estrutura Atômica", "Classificação Periódica", "Ligações Interatômicas e Intermoleculares", "Reações, Equações e Cálculos Químicos", "Funções Inorgânicas", "Estudo das Dispersões", "Termoquímica", "Cinética Química", "Eletroquímica", "Radioatividade", "O Átomo de Carbono", "Compostos Fundamentais da Química Orgânica", "Estudos das Principais Classes Funcionais Orgânicas", "Propriedades e Métodos de Preparação", "Compostos de Importância Biológica", "Poluição Química e Saneamento Ambientais"],
+  "Filosofia": ["Nascimento da Filosofia", "Ética", "Filosofia Política", "Lógica e Teoria do Conhecimento", "Filosofia no Brasil"],
+  "Sociologia": ["Surgimento da Sociologia", "Trabalho e sociedade", "Estado e Sociedade", "Globalização e Mundialização", "Movimentos sociais e sociedade", "Juventude e sociedade", "Gêneros e Sexualidades na Sociedade", "Meios de comunicação e cultura", "Relações étnico-raciais", "Religião e sociedade", "Cultura e sociedade brasileira"],
+  "Geografia": ["Geografia Moderna", "Instrumentação Cartográfica", "Geografia Geral", "Geografia Regional", "Geografia do Brasil", "Geografia do Ceará"],
+  "História": ["História como Ciência", "Revolução Francesa", "Revolução Industrial", "Alta Idade Média", "História do Brasil"],
+  "Ed Física": ["Manifestações Corporais", "Saúde", "Sociedade"],
+  "Inglês": ["Determinantes", "Substantivos", "Adjetivos", "Pronomes", "Preposições", "Advérbios", "Conjunções", "Caso Possessivo/Genitivo", "Verbos", "Discurso Direto e Indireto"],
+  "Francês": ["Grupo Nominal e do Grupo Verbal", "Estruturas frasais"],
+  "Espanhol": ["Compreensão do Texto", "Artigos", "Substantivos, Adjetivos e Pronomes", "Preposições, Conjunções e Advérbios", "Verbos Regulares e Irregulares", "Ortografia"],
+  "Literaturas Lusófonas": ["Presença do épico", "Nacionalismo", "Elementos Messiânicos", "Manifestações Contemporâneas"]
+
+
+}
 }

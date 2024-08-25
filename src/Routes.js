@@ -2,7 +2,7 @@ import {BrowserRouter, Route, Routes,} from "react-router-dom";
 
 import SearchPage from "./views/search/Search";
 import Home from "./views/home/Home";
-import UniversityPage from "./views/university/Search";
+import UniversityPage from "./views/university/University";
 
 
 function AppRoutes() {

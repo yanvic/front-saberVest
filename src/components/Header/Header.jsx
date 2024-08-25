@@ -59,7 +59,7 @@ const Header = ({ theme, toggleTheme}) => {
         <header className="header" ref={headerRef}>
             <div className="container">
                 <div className="nav__wrapper">
-                    <div className="Logo">
+                    <div className="logo">
                         <h2>SaberVest</h2>
                         {/*<p>Grow</p>*/}
                     </div>

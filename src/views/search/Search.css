@@ -1,0 +1,322 @@
+.card__container {
+    background: gray;
+    width: 95%;
+    height: 300px;
+    margin-left: 2.5%;
+    padding: 0;
+    text-align: center;
+    align-content: center;
+    border-radius: 0.5rem;
+}
+
+.select {
+    width: 300px;
+}
+
+/*button {*/
+/*    transition: all .5s ease;*/
+/*    color: #fff;*/
+/*    border: 3px solid white;*/
+/*    font-family:'Montserrat', sans-serif;*/
+/*    text-transform: uppercase;*/
+/*    text-align: center;*/
+/*    line-height: 1;*/
+/*    font-size: 17px;*/
+/*    background-color : transparent;*/
+/*    padding: 10px;*/
+/*    outline: none;*/
+/*    border-radius: 4px;*/
+/*}*/
+/*button:hover {*/
+/*    color: #001F3F;*/
+/*    background-color: #fff;*/
+/*}*/
+
+/*.glow-on-hover {*/
+/*    width: 220px;*/
+/*    height: 50px;*/
+/*    border: none;*/
+/*    outline: none;*/
+/*    color: #fff;*/
+/*    background: #111;*/
+/*    cursor: pointer;*/
+/*    position: relative;*/
+/*    z-index: 0;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.glow-on-hover:before {*/
+/*    content: '';*/
+/*    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);*/
+/*    position: absolute;*/
+/*    top: -2px;*/
+/*    left:-2px;*/
+/*    background-size: 400%;*/
+/*    z-index: -1;*/
+/*    filter: blur(5px);*/
+/*    width: calc(100% + 4px);*/
+/*    height: calc(100% + 4px);*/
+/*    animation: glowing 20s linear infinite;*/
+/*    opacity: 0;*/
+/*    transition: opacity .3s ease-in-out;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.glow-on-hover:active {*/
+/*    color: #000*/
+/*}*/
+
+/*.glow-on-hover:active:after {*/
+/*    background: transparent;*/
+/*}*/
+
+/*.glow-on-hover:hover:before {*/
+/*    opacity: 1;*/
+/*}*/
+
+/*.glow-on-hover:after {*/
+/*    z-index: -1;*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: #111;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*@keyframes glowing {*/
+/*    0% { background-position: 0 0; }*/
+/*    50% { background-position: 400% 0; }*/
+/*    100% { background-position: 0 0; }*/
+/*}*/
+
+
+/*botao limpar e filtrar*/
+
+
+/*@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:700';*/
+
+/*$font:'Source Sans Pro', sans-serif;*/
+/*$primary:#FF0072;*/
+/*$second:#644cad;*/
+/*$third:#4426a8;*/
+
+/**,*/
+/**::before,*/
+/**::after {*/
+/*    -webkit-box-sizing: border-box;*/
+/*    -moz-box-sizing: border-box;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*html, body{*/
+/*    height:100%;*/
+/*    width: 100%;*/
+/*}*/
+
+/*body {*/
+/*    padding:0px;*/
+/*    margin:0;*/
+/*    font-family:$font;*/
+/*    background: #F5F0FF;*/
+/*    -webkit-font-smoothing: antialiased;*/
+/*}*/
+
+/*.dark {*/
+/*    background:#24252A;*/
+/*}*/
+
+/*.flex {*/
+/*    min-height:50vh;*/
+/*    display:flex;*/
+/*    align-items:center;*/
+/*    justify-content:center;*/
+/*}*/
+
+/*a.bttn {*/
+/*    color:$primary;*/
+/*    text-decoration:none;*/
+/*    -webkit-transition:0.3s all ease;*/
+/*    transition:0.3s ease all;*/
+/*    &:hover {*/
+/*        color:#FFF;*/
+/*    }*/
+/*    &:focus {*/
+/*        color:#FFF;*/
+/*    }*/
+/*}*/
+
+/*a.bttn-dark {*/
+/*    color:$second;*/
+/*    text-decoration:none;*/
+/*    -webkit-transition:0.3s all ease;*/
+/*    transition:0.3s ease all;*/
+/*    &:hover {*/
+/*        color:#FFF;*/
+/*    }*/
+/*    &:focus {*/
+/*        color:#FFF;*/
+/*    }*/
+/*}*/
+
+
+/*.bttn {*/
+/*    font-size:18px;*/
+/*    letter-spacing:2px;*/
+/*    text-transform:uppercase;*/
+/*    display:inline-block;*/
+/*    text-align:center;*/
+/*    width:270px;*/
+/*    font-weight:bold;*/
+/*    padding:14px 0px;*/
+/*    border:3px solid $primary;*/
+/*    border-radius:2px;*/
+/*    position:relative;*/
+/*    box-shadow: 0 2px 10px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.1);*/
+/*    &:before {*/
+/*        -webkit-transition:0.5s all ease;*/
+/*        transition:0.5s all ease;*/
+/*        position:absolute;*/
+/*        top:0;*/
+/*        left:50%;*/
+/*        right:50%;*/
+/*        bottom:0;*/
+/*        opacity:0;*/
+/*        content:'';*/
+/*        background-color:$primary;*/
+/*        z-index:-2;*/
+/*    }*/
+/*    &:hover {*/
+/*        &:before {*/
+/*            -webkit-transition:0.5s all ease;*/
+/*            transition:0.5s all ease;*/
+/*            left:0;*/
+/*            right:0;*/
+/*            opacity:1;*/
+/*        }*/
+/*    }*/
+/*    &:focus {*/
+/*        &:before {*/
+/*            transition:0.5s all ease;*/
+/*            left:0;*/
+/*            right:0;*/
+/*            opacity:1;*/
+/*        }*/
+/*    }*/
+/*}*/
+
+/*.bttn-dark {*/
+/*    font-size:18px;*/
+/*    letter-spacing:2px;*/
+/*    text-transform:uppercase;*/
+/*    display:inline-block;*/
+/*    text-align:center;*/
+/*    width:270px;*/
+/*    font-weight:bold;*/
+/*    padding:14px 0px;*/
+/*    border:3px solid $second;*/
+/*    border-radius:2px;*/
+/*    position:relative;*/
+/*    box-shadow: 0 2px 10px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.1);*/
+/*    z-index:2;*/
+/*    &:before {*/
+/*        -webkit-transition:0.5s all ease;*/
+/*        transition:0.5s all ease;*/
+/*        position:absolute;*/
+/*        top:0;*/
+/*        left:50%;*/
+/*        right:50%;*/
+/*        bottom:0;*/
+/*        opacity:0;*/
+/*        content:'';*/
+/*        background-color:$second;*/
+/*        z-index:-1;*/
+/*    }*/
+/*    &:hover {*/
+/*        &:before {*/
+/*            -webkit-transition:0.5s all ease;*/
+/*            transition:0.5s all ease;*/
+/*            left:0;*/
+/*            right:0;*/
+/*            opacity:1;*/
+/*        }*/
+/*    }*/
+/*    &:focus {*/
+/*        &:before {*/
+/*            -webkit-transition:0.5s all ease;*/
+/*            transition:0.5s all ease;*/
+/*            left:0;*/
+/*            right:0;*/
+/*            opacity:1;*/
+/*        }*/
+/*    }*/
+/*}*/
+
+/*!*botao 2*!*/
+/*<a href="#" class="cta">*/
+/*<span>Click me</span>*/
+/*<svg width="13px" height="10px" viewBox="0 0 13 10">*/
+/*<path d="M1,5 L11,5"></path>*/
+/*<polyline points="8 1 12 5 8 9"></polyline>*/
+/*</svg>*/
+/*</a>*/
+/*$color: #111*/
+/*$primary: #FFAB9D*/
+
+/* html, body*/
+/*height: 100%*/
+
+/*body*/
+/*display: grid*/
+/*font-family: Avenir, sans-serif*/
+/*color: $color*/
+
+/*        a*/
+/*        text-decoration: none*/
+/*        color: inherit*/
+
+/*        .cta*/
+/*        position: relative*/
+/*        margin: auto*/
+/*        padding: 19px 22px*/
+/*                        transition: all .2s ease*/
+/*                                          &:before*/
+/*                                          content: ""*/
+/*position: absolute*/
+/*top: 0*/
+/*left: 0*/
+/*display: block*/
+/*border-radius: 28px*/
+/*                 background: rgba($primary,.5)*/
+/*width: 56px*/
+/*         height: 56px*/
+/*                   transition: all .3s ease*/
+/*                                     span*/
+/*                                     position: relative*/
+/*                                     font-size: 16px*/
+/*                                                  line-height: 18px*/
+/*                                                                 font-weight: 900*/
+/*letter-spacing: .25em*/
+/*                   text-transform: uppercase*/
+/*                   vertical-align: middle*/
+/*                   svg*/
+/*                   position: relative*/
+/*                   top: 0*/
+/*margin-left: 10px*/
+/*               fill: none*/
+/*               stroke-linecap: round*/
+/*               stroke-linejoin: round*/
+/*               stroke: $color*/
+/*                        stroke-width: 2*/
+/*transform: translateX(-5px)*/
+/*transition: all .3s ease*/
+/*                  &:hover*/
+/*                  &:before*/
+/*                  width: 100%*/
+/*background: rgba($primary,1)*/
+/*svg*/
+/*transform: translateX(0)*/
+/*&:active*/
+/*transform: scale(.96)*/
