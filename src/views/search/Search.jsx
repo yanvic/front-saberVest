@@ -1,16 +1,18 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
 import '../../components/Header/Header.css'
 import '../../styles/hero.css'
 import Select from "react-select";
 import './Search.css'
 import {useParams} from "react-router-dom";
-
+import Pagination from "./pagination";
 
 
 function SearchPage() {
 
     const [optionsValue, setOptionsValue] = useState(null);
     const [mattersValue, setMattersValue] = useState(null);
+
+
 
     const item = [
         {
@@ -26,31 +28,32 @@ function SearchPage() {
     ];
 
     const topics = [
-        { value: "bludes", label: "mat" },
-        { value: "rocdk", label: "sa" },
-        { value: "djazz", label: "J" },
-        { value: "orcdhestra", label: "Orstra" },
+        {value: "bludes", label: "mat"},
+        {value: "rocdk", label: "sa"},
+        {value: "djazz", label: "J"},
+        {value: "orcdhestra", label: "Orstra"},
     ];
 
     const matters = [
-        { value: "bludes", label: "Blues" },
-        { value: "rocdk", label: "Rock" },
-        { value: "djazz", label: "Jazz" },
-        { value: "orcdhestra", label: "Orchestra" },
+        {value: "bludes", label: "Blues"},
+        {value: "rocdk", label: "Rock"},
+        {value: "djazz", label: "Jazz"},
+        {value: "orcdhestra", label: "Orchestra"},
     ];
 
 
     const options = [
-        { value: "blues", label: "Blues" },
-        { value: "rock", label: "Rock" },
-        { value: "jazz", label: "Jazz" },
-        { value: "orchestra", label: "Orchestra" },
+        {value: "blues", label: "Blues"},
+        {value: "rock", label: "Rock"},
+        {value: "jazz", label: "Jazz"},
+        {value: "orchestra", label: "Orchestra"},
     ];
 
     const startYear = 2014;
     const endYear = 2024;
 
-    const years = Array.from({ length: endYear - startYear + 1 }, (v, i) => ({
+
+    const years = Array.from({length: endYear - startYear + 1}, (v, i) => ({
         value: startYear + i,
         label: startYear + i,
     }));
@@ -68,7 +71,7 @@ function SearchPage() {
     const [selectedOptions, setSelectedOptions] = useState(null);
     const [only, setOnly] = useState('Ano');
 
-    const { name } = useParams();
+    const {name} = useParams();
 
     const selectChange = (selectedTopic) => {
         setMattersValue(selectedTopic);
@@ -81,12 +84,16 @@ function SearchPage() {
     const handleFirstSelectChange = (selectedOption) => {
         setOptionsValue(selectedOption);
 
+        console.log(selectedOption)
+
         if (!selectedOption) {
             setSelectedOption(null);
         }
     };
     const filteredYears = years.filter(option => {
         return optionsValue ? parseInt(option.value) > parseInt(optionsValue.value) : true;
+
+
     });
 
     const handleSecondSelectChange = (selectedOption) => {
@@ -104,6 +111,43 @@ function SearchPage() {
     const date = () => {
         setOnly(prevState => prevState === 'Ano' ? 'Período' : 'Ano');
         setSelectedOption(null)
+    };
+
+    const clearFiltres = () => {
+        console.log(optionsValue)
+        setOptionsValue(null);
+        setMattersValue(null);
+        setSelectedTopic(null);
+        setSelectedOption(null);
+    };
+    const [dateInvalid, setDateInvalid] = useState(false);
+
+    const searchFiltres = () => {
+        setDateInvalid(false);
+
+        console.log(selectedTopic, mattersValue, optionsValue, selectedOption);
+
+        if (!mattersValue) {
+            console.log('Selecione uma matéria');
+            return;
+        }
+
+        if (only === 'Período' && !selectedOption) {
+            console.log('Selecione um período');
+            setDateInvalid(true);
+            return;
+        }
+
+        console.log('Realizando a requisição com os filtros');
+
+    };
+
+
+    const [pageNow, setPageNow] = useState(1);
+    const totalPages = 14;
+
+    const handlePageChange = (page) => {
+        setPageNow(page);
     };
 
     return (
@@ -126,23 +170,24 @@ function SearchPage() {
                     placeholder="Selecione uma matéria"
                 />
 
-                    <Select
-                        isClearable
-                        isDisabled={!mattersValue}
-                        className="select"
-                        options={topics}
-                        value={selectedTopic}
-                        onChange={setSelectedTopic}
-                        placeholder="Selecione um assunto"
-                    />
+                <Select
+                    isClearable
+                    isDisabled={!mattersValue}
+                    className="select"
+                    options={topics}
+                    value={selectedTopic}
+                    onChange={setSelectedTopic}
+                    placeholder="Selecione um assunto"
+                />
 
 
                 <div className="card__container">
 
+
                     <Select
                         isClearable
                         className="select"
-                        defaultValue={optionsValue}
+                        value={optionsValue}
                         onChange={handleFirstSelectChange}
                         options={years}
                         styles={customStyles}
@@ -161,11 +206,15 @@ function SearchPage() {
                             placeholder="Selecione um período"
                         />
                     )}
+                    {dateInvalid === true && (
+                        <span>Erro data inválida</span>
+                    )}
                     <input type="checkbox"
                            id="switch"
                            className="checkbox"
                            onClick={date}
                     />
+
 
                     <label htmlFor="switch"
                            className="toggle">
@@ -185,8 +234,8 @@ function SearchPage() {
                             styles={customStyles}
                     />
 
-                    <button className="secondary__btn">Limpar</button>
-                    <button className="primary__btn">Filtrar</button>
+                    <button className="secondary__btn" onClick={clearFiltres}>Limpar</button>
+                    <button className="primary__btn" onClick={searchFiltres}>Filtrar</button>
                 </div>
 
             </div>
@@ -209,14 +258,9 @@ function SearchPage() {
                 </div>
             </div>
 
+            <Pagination pageNow={pageNow} totalPages={totalPages} onPageChange={handlePageChange}/>
+            <div>{pageNow}</div>
 
-            <span className="ri-arrow-left-s-line"></span>
-            <span className="">1</span>
-            <span className="">...</span>
-            <span className="">5</span>
-            <span className="">...</span>
-            <span className="">10</span>
-            <span className="ri-arrow-right-s-line"></span>
 
         </div>
     );
