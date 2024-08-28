@@ -1,16 +1,73 @@
-import React, { useState} from "react";
+import React, {useEffect, useState} from "react";
 import '../../components/Header/Header.css'
 import '../../styles/hero.css'
 import Select from "react-select";
 import './Search.css'
 import {useParams} from "react-router-dom";
 import Pagination from "./pagination";
+import data from './colleges.json';
+
+
+
+
+
 
 
 function SearchPage() {
-
+    const {name} = useParams();
     const [optionsValue, setOptionsValue] = useState(null);
+
+    const [matters, setMatters] = useState([]);
+    const [topics, setTopics] = useState([]);
     const [mattersValue, setMattersValue] = useState(null);
+
+    useEffect(() => {
+        if (name) {
+            const collegeData = data.universidades[name.toUpperCase()];
+
+            if (collegeData) {
+                const mattersOptions = collegeData.materias.map(materia => ({
+                    value: materia,
+                    label: materia
+                }));
+                setMatters(mattersOptions);
+            } else {
+                setMatters([]);
+                setTopics([]);
+            }
+        }
+        // eslint-disable-next-line no-use-before-define
+    }, [name]);
+
+    useEffect(() => {
+        if (mattersValue) {
+            const topicsData = data.assuntos[mattersValue];
+            const topicsOptions = topicsData ? topicsData.map(topic => ({
+                value: topic,
+                label: topic
+            })) : [];
+            setTopics(topicsOptions);
+        } else {
+            setTopics([]);
+        }
+    }, [mattersValue]);
+
+    useEffect(() => {
+        if (mattersValue) {
+            const topicsData = data.assuntos[mattersValue];
+            const topicsOptions = topicsData ? topicsData.map(topic => ({
+                value: topic,
+                label: topic
+            })) : [];
+            setTopics(topicsOptions);
+
+            setSelectedTopic(null);
+        } else {
+            setTopics([]);
+            setSelectedTopic(null);
+        }
+    }, [mattersValue]);
+
 
 
 
@@ -27,27 +84,12 @@ function SearchPage() {
         },
     ];
 
-    const topics = [
-        {value: "bludes", label: "mat"},
-        {value: "rocdk", label: "sa"},
-        {value: "djazz", label: "J"},
-        {value: "orcdhestra", label: "Orstra"},
-    ];
-
-    const matters = [
-        {value: "bludes", label: "Blues"},
-        {value: "rocdk", label: "Rock"},
-        {value: "djazz", label: "Jazz"},
-        {value: "orcdhestra", label: "Orchestra"},
-    ];
-
-
-    const options = [
-        {value: "blues", label: "Blues"},
-        {value: "rock", label: "Rock"},
-        {value: "jazz", label: "Jazz"},
-        {value: "orchestra", label: "Orchestra"},
-    ];
+    // const options = [
+    //     {value: "blues", label: "Blues"},
+    //     {value: "rock", label: "Rock"},
+    //     {value: "jazz", label: "Jazz"},
+    //     {value: "orchestra", label: "Orchestra"},
+    // ];
 
     const startYear = 2014;
     const endYear = 2024;
@@ -68,18 +110,8 @@ function SearchPage() {
 
     const [selectedOption, setSelectedOption] = useState(null);
     const [selectedTopic, setSelectedTopic] = useState(null);
-    const [selectedOptions, setSelectedOptions] = useState(null);
+    // const [ setSelectedOptions] = useState(null);
     const [only, setOnly] = useState('Ano');
-
-    const {name} = useParams();
-
-    const selectChange = (selectedTopic) => {
-        setMattersValue(selectedTopic);
-
-        if (!selectedTopic) {
-            setSelectedTopic(null);
-        }
-    };
 
     const handleFirstSelectChange = (selectedOption) => {
         setOptionsValue(selectedOption);
@@ -100,13 +132,13 @@ function SearchPage() {
         setSelectedOption(selectedOption);
     };
 
-    const maxSelections = 3;
+    // const maxSelections = 3;
 
-    const handleChange = (selected) => {
-        if (selected.length <= maxSelections) {
-            setSelectedOptions(selected);
-        }
-    };
+    // const handleChange = (selected) => {
+    //     if (selected.length <= maxSelections) {
+    //         setSelectedOptions(selected);
+    //     }
+    // };
 
     const date = () => {
         setOnly(prevState => prevState === 'Ano' ? 'Período' : 'Ano');
@@ -161,11 +193,13 @@ function SearchPage() {
             </div>
 
             <div className="card__body">
+
+
                 <Select
                     isClearable
                     className="select"
-                    value={mattersValue}
-                    onChange={selectChange}
+                    value={mattersValue ? { value: mattersValue, label: mattersValue } : null}
+                    onChange={(option) => setMattersValue(option ? option.value : null)}
                     options={matters}
                     placeholder="Selecione uma matéria"
                 />
@@ -175,11 +209,13 @@ function SearchPage() {
                     isDisabled={!mattersValue}
                     className="select"
                     options={topics}
-                    value={selectedTopic}
-                    onChange={setSelectedTopic}
+                    value={selectedTopic ? { value: selectedTopic, label: selectedTopic } : null}
+                    onChange={(option) => {
+                        console.log("Selected topic option:", option); // Depuração
+                        setSelectedTopic(option ? option.value : null);
+                    }}
                     placeholder="Selecione um assunto"
                 />
-
 
                 <div className="card__container">
 
@@ -218,6 +254,7 @@ function SearchPage() {
 
                     <label htmlFor="switch"
                            className="toggle">
+
                         <i className=""></i>
                         <i className=""></i>
 
@@ -225,14 +262,6 @@ function SearchPage() {
                     <br></br>
                     <br></br>
                     <div>{only}</div>
-
-                    <Select className="select"
-                            value={selectedOptions}
-                            onChange={handleChange}
-                            options={options}
-                            isMulti
-                            styles={customStyles}
-                    />
 
                     <button className="secondary__btn" onClick={clearFiltres}>Limpar</button>
                     <button className="primary__btn" onClick={searchFiltres}>Filtrar</button>
