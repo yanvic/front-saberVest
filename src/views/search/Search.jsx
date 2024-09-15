@@ -140,10 +140,16 @@ function SearchPage() {
     //     }
     // };
 
-    const date = () => {
-        setOnly(prevState => prevState === 'Ano' ? 'Período' : 'Ano');
+    // const date = () => {
+    //     setOnly(prevState => prevState === 'Ano' ? 'Período' : 'Ano');
+    //     setSelectedOption(null)
+    // };
+
+    const dateChange = (value) => {
+        setOnly(value);  // Atualiza o estado com o valor recebido
         setSelectedOption(null)
-    };
+        console.log('only:', value);
+    }
 
     const clearFiltres = () => {
         console.log(optionsValue)
@@ -195,76 +201,86 @@ function SearchPage() {
             <div className="card__body">
 
 
-                <Select
-                    isClearable
-                    className="select"
-                    value={mattersValue ? { value: mattersValue, label: mattersValue } : null}
-                    onChange={(option) => setMattersValue(option ? option.value : null)}
-                    options={matters}
-                    placeholder="Selecione uma matéria"
-                />
-
-                <Select
-                    isClearable
-                    isDisabled={!mattersValue}
-                    className="select"
-                    options={topics}
-                    value={selectedTopic ? { value: selectedTopic, label: selectedTopic } : null}
-                    onChange={(option) => {
-                        console.log("Selected topic option:", option); // Depuração
-                        setSelectedTopic(option ? option.value : null);
-                    }}
-                    placeholder="Selecione um assunto"
-                />
-
                 <div className="card__container">
-
-
-                    <Select
-                        isClearable
-                        className="select"
-                        value={optionsValue}
-                        onChange={handleFirstSelectChange}
-                        options={years}
-                        styles={customStyles}
-                        placeholder="Selecione o ano"
-                    />
-
-
-                    {only === 'Período' && (
+                    <div className="itens__item-wrapper">
                         <Select
+                            isClearable
                             className="select"
-                            isDisabled={!optionsValue}
-                            value={selectedOption}
-                            onChange={handleSecondSelectChange}
-                            options={filteredYears}
-                            styles={customStyles}
-                            placeholder="Selecione um período"
+                            value={mattersValue ? {value: mattersValue, label: mattersValue} : null}
+                            onChange={(option) => setMattersValue(option ? option.value : null)}
+                            options={matters}
+                            placeholder="Selecione uma matéria"
                         />
-                    )}
+
+                        <Select
+                            isClearable
+                            isDisabled={!mattersValue}
+                            className="select"
+                            options={topics}
+                            value={selectedTopic ? {value: selectedTopic, label: selectedTopic} : null}
+                            onChange={(option) => {
+                                console.log("Selected topic option:", option); // Depuração
+                                setSelectedTopic(option ? option.value : null);
+                            }}
+                            placeholder="Selecione um assunto"
+                        />
+
+                        <Select
+                            isClearable
+                            className="select"
+                            value={optionsValue}
+                            onChange={handleFirstSelectChange}
+                            options={years}
+                            styles={customStyles}
+                            placeholder="Selecione o ano"
+                        />
+
+
+                        {only === 'Período' && (
+                            <Select
+                                className="select"
+                                isDisabled={!optionsValue}
+                                value={selectedOption}
+                                onChange={handleSecondSelectChange}
+                                options={filteredYears}
+                                styles={customStyles}
+                                placeholder="Selecione um período"
+                            />
+                        )}
+
+                        <input type="radio" id="option1" onClick={() => dateChange('Ano')}
+                               checked={only === 'Ano'}/>
+                        <label>Data Única</label>
+
+                        <input type="radio" id="option2" onClick={() => dateChange('Período')}
+                               checked={only === 'Período'}/>
+                        <label>Data Período</label>
+                    </div>
+
                     {dateInvalid === true && (
                         <span>Erro data inválida</span>
                     )}
-                    <input type="checkbox"
-                           id="switch"
-                           className="checkbox"
-                           onClick={date}
-                    />
 
 
-                    <label htmlFor="switch"
-                           className="toggle">
+                    {/*<input type="checkbox"*/}
+                    {/*       id="switch"*/}
+                    {/*       className="checkbox"*/}
+                    {/*       onClick={date}*/}
+                    {/*/>*/}
 
-                        <i className=""></i>
-                        <i className=""></i>
 
-                    </label>
-                    <br></br>
-                    <br></br>
-                    <div>{only}</div>
+                    {/*<label htmlFor="switch"*/}
+                    {/*       className="toggle">*/}
 
-                    <button className="secondary__btn" onClick={clearFiltres}>Limpar</button>
-                    <button className="primary__btn" onClick={searchFiltres}>Filtrar</button>
+                    {/*    <i className=""></i>*/}
+                    {/*    <i className=""></i>*/}
+
+                    {/*</label>*/}
+                    {/*<div>{only}</div>*/}
+                    <div className="buttons">
+                        <button className="secondary__btn" onClick={clearFiltres}>Limpar</button>
+                        <button className="primary__btn" onClick={searchFiltres}>Filtrar</button>
+                    </div>
                 </div>
 
             </div>
