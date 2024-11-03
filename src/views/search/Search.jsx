@@ -6,14 +6,66 @@ import './Search.css'
 import {useParams} from "react-router-dom";
 import Pagination from "./pagination";
 import data from './colleges.json';
-
-
+import {useColleges} from "../../hooks/useColleges";
 
 
 
 
 
 function SearchPage() {
+
+    // const [universities, setUniversities] = useState([]);
+    //
+    // useEffect(() => {
+    //     fetch("http://localhost:8080/v1/college")
+    //         .then((response) => response.json())
+    //         .then((data) => setUniversities(data))
+    //         .catch((error) => console.error("Error fetching universities:", error));
+    // }, []);
+    //
+
+    // const API_URL = 'http://localhost:8080/v1'
+
+// useEffect(() => {
+//     fetch("http://localhost:8080/v1/college")
+//         .then((response) => response.json())
+//         .then((data) => setUniversities(data))
+//         .catch((error) => console.error("Error fetching universities:", error));
+// }, []);
+
+    // const fetchData = async (): AxiosPromise<CollegeResponse> => {
+    //     debugger
+    //     const response = await axios.get<CollegeResponse>(`${API_URL}/college`);
+    //     return response;
+    // };
+    //
+    // function useColleges(){
+    //     const query = useQuery({
+    //         queryFn: fetchData,
+    //         queryKey: ['college-data']
+    //     })
+    //     return {
+    //         ...query,
+    //         data: query.data?.data
+    //     };
+    // };
+    //
+    const { data: colleges, isLoading, error } = useColleges();
+
+    // const [colleges, setColleges] = useState([]);
+    //
+    // useEffect(() => {
+    //     // Requisição simples para testar
+    //     axios.get(`${API_URL}/college`)
+    //         .then((response) => {
+    //             setColleges(response.data.data); // Assumindo que `response.data` contém o objeto `CollegeResponse`
+    //         })
+    //         .catch((error) => {
+    //             console.error("Erro ao buscar universidades:", error);
+    //         });
+    // }, []);
+
+
     const {name} = useParams();
     const [optionsValue, setOptionsValue] = useState(null);
 
@@ -197,7 +249,45 @@ function SearchPage() {
             <div className="">
                 <h1 className="">{name.toUpperCase()}</h1>
             </div>
-
+            <div>
+                <h1>Home Page</h1>
+                {/*<ul>*/}
+                {/*    {data?.data.map((data) => (*/}
+                {/*        <li key={data.id}>*/}
+                {/*            <strong>{data.name}</strong> <br/>*/}
+                {/*            Code: {data.code} <br/>*/}
+                {/*            Location ID: {data.location_id}*/}
+                {/*        </li>*/}
+                {/*    ))}*/}
+                {/*</ul>*/}
+                {/*<ul>*/}
+                {/*    {data?.data.map((college) => (*/}
+                {/*        <li key={college.id}>*/}
+                {/*            <strong>{college.name}</strong> <br/>*/}
+                {/*            Code: {college.code} <br/>*/}
+                {/*            Location ID: {college.location_id}*/}
+                {/*        </li>*/}
+                {/*    ))}*/}
+                {/*</ul>*/}
+                {/*<ul>*/}
+                {/*    {colleges.map((college) => (*/}
+                {/*        <li key={college.id}>*/}
+                {/*            <strong>{college.name}</strong> <br/>*/}
+                {/*            Code: {college.code} <br/>*/}
+                {/*            Location ID: {college.location_id}*/}
+                {/*        </li>*/}
+                {/*    ))}*/}
+                {/*</ul>*/}
+                <ul>
+                    {colleges?.map((college) => (
+                        <li key={college.id}>
+                            <strong>{college.name}</strong> <br/>
+                            Code: {college.code} <br/>
+                            Location ID: {college.location_id}
+                        </li>
+                    ))}
+                </ul>
+            </div>
             <div className="card__body">
 
 
